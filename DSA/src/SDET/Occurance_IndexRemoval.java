@@ -9,7 +9,7 @@ public class Occurance_IndexRemoval {
 		int indexToRemove = 5;
 		
 		for (int i=0;i<arr.length;i++) {
-			if (arr[i]==indexToRemove)AND (arr[i]!= arr.length){
+			if (arr[i]==indexToRemove)&& (arr[i]!= arr.length){
 				
 				
 			}
