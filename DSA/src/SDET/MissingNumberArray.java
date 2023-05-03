@@ -27,13 +27,13 @@ public class MissingNumberArray {
 
 	}*/
 		
-		int arr[]= {1,0,3};
+		int arr[]= {1,2,3,5};
 		int n = arr.length;
 		int sum =0;
-		sum =(n+1)/2;
+		sum =((n+1)*(n+2))/2;
 		System.out.print("Sum of array"+" "+sum+"\n");
 		for (int i=0; i<n;i++) {
-			sum = arr[i]-sum;
+			sum = sum-arr[i];
 			
 			
 		}
