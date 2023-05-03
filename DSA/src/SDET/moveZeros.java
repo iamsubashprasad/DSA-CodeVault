@@ -15,7 +15,7 @@ public class moveZeros {
 				output[temp++]=arr[i];		
 		}
 		for (i=0;i<output.length;i++) {
-			System.out.println(output[i]);
+			System.out.print(output[i]);
 		}
 		
 	}
