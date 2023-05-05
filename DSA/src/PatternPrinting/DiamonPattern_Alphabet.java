@@ -14,6 +14,7 @@ public class DiamonPattern_Alphabet {
 			 
 			 for (k=1;k<=i;k++) {
 				 System.out.print((char)(letter+i)+" ");
+				 
 			
 		 }
 			 System.out.println();
