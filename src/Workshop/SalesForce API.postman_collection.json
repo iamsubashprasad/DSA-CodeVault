@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "0f55a864-fb57-4bb3-bcb7-7feaf1cae5a7",
+		"name": "SalesForce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5539080",
+		"_collection_link": "https://bold-spaceship-292444.postman.co/workspace/New-Team-Workspace~9d009fe1-93b5-4674-96ec-a961ec049b2d/collection/5539080-0f55a864-fb57-4bb3-bcb7-7feaf1cae5a7?action=share&source=collection_link&creator=5539080"
+	},
+	"item": [
+		{
+			"name": "Generate OAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.get(\"access_token\");\r",
+							"\r",
+							"pm.collectionVariables.set(\"access_token\",\"access_token\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3MVG9pRzvMkjMb6lZlt3YjDQwe0hk0f5ZPyWD38tfPYQ75KXUzZBGzM_c7I0o3yc6ua1IUk6lEQIy4U2sByrg",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "79FFF874D54193B377A60354C71CBBE83120AD28A5D6BC536D2F68C94645DE98",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "ranjini.r@testleaf.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Testleaf$321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.salesforce.com/services/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Lead",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "00D5j00000C8pLO!ARoAQCM0AYFKvkhpIyBfE23z1XBFdVXCMbIMfBkfycGrijYJWYGv9pc1MPgaJAzh.lzeboHU7588n3wlHC_e0egXHX6koWv2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\": \"Subash\",\r\n    \"LastName\": \"Prasad\",\r\n    \"Company\": \"Citi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://login.salesforce.com/services/data/v58.0/sobjects/Lead/",
+					"protocol": "https",
+					"host": [
+						"login",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Lead",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLead",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testleaf30-dev-ed.develop.my.salesforce.com/services/data/v58.0/sobjects/Lead/{{id}}",
+					"protocol": "https",
+					"host": [
+						"testleaf30-dev-ed",
+						"develop",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v58.0",
+						"sobjects",
+						"Lead",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
